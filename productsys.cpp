@@ -14,7 +14,7 @@ public:
     void setdata();
     void display();
 
-    friend product show_product(product, product, product);
+    friend product show_product(product, product, product);      // my first code in git.
 };
 
 void product::setdata()
