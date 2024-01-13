@@ -5,6 +5,8 @@ additional information :
 3.nrs
 4.inr*/
 
+// coded by Biplov Gautam 
+
 #include<stdio.h>
 #include<string.h>
 
