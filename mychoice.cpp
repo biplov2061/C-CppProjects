@@ -1,0 +1,114 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class voting
+{
+    int age;
+    int choice;
+    int total_votes;
+    int commnist_val = 0;
+    int moist_val = 0;
+    int congress_val = 0;
+    int invalid_val = 0;
+
+public:
+    voting()
+    {
+    }
+    voting(int age)
+    {
+        this->age = age;
+        check();
+    }
+
+    void check()
+    {
+        if (age > 20)
+        {
+            vote();
+        }
+        else
+        {
+            cout << "NOT ELIGIBLE FOR VOTING\n";
+            exit(0);
+        }
+    }
+
+    void vote()
+    {
+        cout << "enter total votes to be entered\n";
+        cin >> total_votes;
+
+        for (int i = total_votes; i >= 1; i--)
+        {
+            cout << "choose your voting candidate\n";
+            cout << "1. commnist\n2.moist\n3.congress\n"
+                 << endl;
+            cin >> choice;
+            switch (choice)
+            {
+            case 1:
+                commnist();
+                break;
+
+            case 2:
+                moist();
+                break;
+
+            case 3:
+                congress();
+                break;
+
+            default:
+                cout << "invalid choice\n";
+                invalid();
+            }
+        }
+    }
+
+    void commnist()
+    {
+        commnist_val++;
+        
+    }
+
+    void moist()
+    {
+        moist_val++;
+        
+    }
+
+    void congress()
+    {
+        congress_val++;
+    
+    }
+
+    void invalid()
+    {
+        invalid_val++;
+    }
+
+    void total_vote()
+    {
+        cout << "Total votes casted :" << total_votes << endl;
+        cout<<"\n";
+        cout << "Total votes (commnist) :" << commnist_val << endl;
+        cout << "Total votes (moist) :" << moist_val << endl;
+        cout << "Total votes (congress) :" << congress_val << endl;
+        cout << "Total invalid votes  :" << invalid_val << endl;
+    }
+};
+
+int main()
+{
+    voting V1;
+    int age;
+    cout << "Enter your age for voting\n";
+    cin >> age;
+
+    V1 = voting(age);
+    V1.total_vote();
+    return 0;
+}
